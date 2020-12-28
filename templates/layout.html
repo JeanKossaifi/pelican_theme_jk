@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'navigation.html' %}
+
+<section class="articles">
+<div class="column is-8 is-offset-2">
+	{% block content %}
+	{% endblock content %}
+</div>
+</section>
+
+{% include 'footer.html' %}
+
+{% endblock body %} 

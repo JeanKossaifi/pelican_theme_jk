@@ -1,0 +1,31 @@
+	<script type="application/ld+json">
+	{
+	    "@context": "https://schema.org/",
+	    "@type": "Person",
+		"name": "{{AUTHOR}}",
+		"url": "{{SITEURL}}",
+	    "image": "{{ SITEURL }}/images/{{PROFILE_IMAGEFILE}}",
+	    "sameAs": [
+			{% if GITHUB_USERNAME %}
+			"https://github.com/{{ GITHUB_USERNAME }}",
+			{% endif %}
+			{% if TWITTER_USERNAME %}
+			"https://twitter.com/{{ TWITTER_USERNAME }}",
+			{% endif %}
+			{% if GOOGLE_SCHOLAR_USERNAME %}
+			"https://scholar.google.co.uk/citations?user={{ GOOGLE_SCHOLAR_USERNAME }}",
+			{% endif %}
+			{% if LINKEDIN_USERNAME %}
+			"https://uk.linkedin.com/in/{{LINKEDIN_USERNAME}}"
+			{% endif %}
+	    ],
+		"jobTitle": "{{SEO_TITLE}}",
+	    "worksFor": {
+	        "@type": "Organization",
+			"name": "{{SEO_AFFILIATION}}"
+	    },
+		"affiliation": "{{SEO_AFFILIATION}}",
+		"alumniOf": "{{SEO_ALMA_MATTER}}",
+		"description": "{{SEO_DESCRIPTION}}" 
+	    }
+	</script>

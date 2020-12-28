@@ -1,0 +1,169 @@
+{% extends 'layout.html' %}
+{% import 'macros.html' as macros %}
+
+{% block seo %}
+{% include "seo.html" %}
+{% endblock seo %}
+
+{% block content %}
+
+	{# START about #}
+	<a class="menu-anchor" id="menu-about"></a>
+	<div class="card article menu-section">
+	<div class="card-content">
+
+		{# title #}
+		<div class="media">
+			<div class="media-center">
+				<span class="article-icon icon fa-2x">
+					<i class="fa fa-user"></i>
+				</span>
+			</div>
+			<div class="media-content has-text-centered">
+			  <h1 class="title article-title">
+				  About
+			  </h1>
+			</div>
+	  	</div>
+		{# content #}
+		<div id="" class="content article-body">
+		{% include 'about.html' %}
+		</div>
+		{# END content #}
+	</div>
+	</div>
+	{# END about #}
+
+	{# START news #}
+	<a class="menu-anchor" id="menu-news"></a>
+	<div class="card article menu-section">
+	<div class="card-content">
+
+		{# title #}
+		<div class="media">
+			<div class="media-center">
+				<span class="article-icon icon fa-2x">
+					<i class="fa fa-newspaper-o"></i>
+				</span>
+			</div>
+			<div class="media-content has-text-centered">
+			  <h1 class="title article-title">
+				  News
+			  </h1>
+			</div>
+	  	</div>
+		{# content #}
+		<div id="" class="content news-summary article-body">
+		{% for page in pages %}
+		{% if page.page_name == 'news' %}
+			{{page.summary}}
+		{% endif %}
+		{% endfor %}
+		</div>
+		{# END content #}
+	</div>
+	</div>
+	{# END news #}
+
+
+	{# START news #}
+	<a class="menu-anchor" id="menu-projects"></a>
+	<div class="card article menu-section">
+	<div class="card-content">
+
+		{# title #}
+		<div class="media">
+			<div class="media-center">
+				<span class="article-icon icon fa-2x">
+					<i class="fa fa-tasks"></i>
+				</span>
+			</div>
+			<div class="media-content has-text-centered">
+			  <h1 class="title article-title">
+				  Projects
+			  </h1>
+			</div>
+	  	</div>
+		{# content #}
+		<div id="" class="content article-body">
+		{% include 'projects.html' %}
+		</div>
+		{# END content #}
+	</div>
+	</div>
+	{# END news #}
+
+
+	{# START publications #}
+	<a class="menu-anchor" id="menu-publications"></a>
+	<div class="card article menu-section">
+	<div class="card-content">
+		{# title #}
+		<div class="media">
+			<div class="media-center">
+				<span class="article-icon icon fa-2x">
+					<i class="fa fa-graduation-cap"></i>
+				</span>
+			</div>
+			<div class="media-content has-text-centered">
+			  <h1 class="title article-title">
+				  Publications
+			  </h1>
+			</div>
+	  	</div>
+		{# Search bar #}
+		<div class="field">
+			<input class="input is-rounded publication-search" type="text" placeholder="Search publications" id="publication-search">
+		</div>
+		{# content #}
+		<div id="" class="content article-body">
+			<script type="text/javascript">
+			function disp(s) {
+				var win;
+				var doc;
+				win = window.open("", "WINDOWID");
+				doc = win.document;
+				doc.open("text/plain");
+				doc.write("<pre>" + s + "</pre>");
+				doc.close();
+				}
+			</script>
+
+			<script>
+			function toggle_modal(id){
+				var modal = document.getElementById(id);
+				modal.classList.toggle('is-active');
+			};
+			</script>
+		
+			<section id="content" class="body">
+			{% for publication in publications %}
+        	{{ macros.publication_info(publication, BIBTEX_ADDITIONAL_FIELDS) }}
+			{% endfor %}
+
+		</div>
+		{# END content #}
+	</div>
+	</div>
+	{# END publications #}
+
+<script>
+	publications = document.querySelectorAll('div.publication');
+	var input_element = document.getElementById('publication-search');
+    var search_value = input_element.value;
+
+	input_element.onkeyup = function() {
+        var filter = this.value.toUpperCase()
+        for (var i = 0; i < publications.length; i++) {
+            var text = publications[i].textContent;
+			if (text.toUpperCase().indexOf(filter) != -1) {
+                publications[i].style.display = 'block';
+			}
+			else {
+                publications[i].style.display = 'none';
+			}
+        }
+    }
+</script>
+
+{% endblock content %}

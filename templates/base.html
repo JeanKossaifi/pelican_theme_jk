@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="{{ SITEURL}}" />
+	<meta name="keywords" content="{{ SITEKEYWORDS}}">
+    <meta name="description" content="{% block meta_description %}{{ DESCRIPTION }}{% endblock meta_description %}">
+
+	{% block head %}
+	<meta name="author" content="{{ AUTHOR }}">
+	<title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+	{% endblock head %}
+
+
+	{% block card %}
+	<meta name="twitter:card" content="summary" />
+	{% if TWITTER_USERNAME %}
+	<meta name="twitter:creator" content="@{{TWITTER_USERNAME}}" />
+	{% endif %}
+	<meta name="twitter:title" content="{{SITENAME}}" />
+	{% endblock card %}
+	{% block seo %}
+	{% endblock seo %}
+
+	{% if FAVICON %}
+	<link rel="icon" href="{{ SITEURL }}/{{ FAVICON }}">
+	{% endif %}
+
+	<script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+	  "HTML-CSS": {
+	  styles: {
+	  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+	  },
+	  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
+	  });
+	</script>
+
+	<script type="text/javascript" async
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> 
+	</script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/bulma.css" />
+	<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygment.css" />
+	<link rel="icon" href="{{SITEURL}}/theme/favicon.ico" type="image/x-icon" />
+	{% block head_css %}
+	{% endblock head_css %}
+
+	{% block head_js %}
+	{% endblock head_js %}
+</head>
+
+
+<body>
+{% block body %}
+
+<section class="articles">
+<div class="column is-8 is-offset-2">
+	{% block content %}
+	{% endblock content %}
+</div>
+</section>
+
+{% endblock body %}
+{% include 'analytics.html' %}
+
+</body>
+
+{% if page_name == 'index'%}
+<script type="text/javascript" src="{{ SITEURL }}/theme/scripts/navigation.js" />
+</script>
+{% endif %}
+<script type="text/javascript" src="{{ SITEURL }}/theme/scripts/burger.js" />
+</script>
+{% block foot_js %}
+{% endblock foot_js %}
+
+</html>

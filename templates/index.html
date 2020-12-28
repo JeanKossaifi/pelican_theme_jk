@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1 class="pagetitle title is-2 has-text-centered">
+	{% block pagetitle %}
+	{% if not articles_page.has_previous() %}
+	LATEST BLOG POSTS
+	{% else %}
+	BLOG POSTS
+	{% endif %}
+	{% endblock pagetitle %}
+
+	{% if articles_page.has_previous() %}
+	&ndash; Page&nbsp;{{ articles_page.number }}
+	{% endif %}
+</h1>
+
+<div class="posts">
+	{% for article in articles_page.object_list %}
+	{% include 'post.html' %}
+	{% endfor %}
+</div>
+
+{% include 'pagination.html' %}
+
+
+{% endblock content %}

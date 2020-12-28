@@ -1,0 +1,21 @@
+<nav class="pagination is-centered">
+    {% if articles_page.has_previous() %}
+    <a class="button is-rounded pagination-previous" href="{{ SITEURL }}/{{ articles_previous_page.url }}">
+		Newer posts
+	</a>
+    {% endif %}
+
+    {% if articles_page.has_next() %}
+    <a class="button is-rounded pagination-next" href="{{ SITEURL }}/{{ articles_next_page.url }}"> 
+		Older posts 
+	</a>
+    {% endif %}
+
+    <ul class="pagination-list">
+        <li>
+            <span>
+                Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}
+            </span>
+        </li>
+    </ul>
+</nav>

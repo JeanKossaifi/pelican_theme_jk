@@ -1,0 +1,33 @@
+<nav class="navbar is-fixed-top is-dark">
+
+	<div class="navbar-brand">
+		<a class="navbar-item menu-title is-size-4" href="{{ SITEURL }}">
+			{{ AUTHOR }}
+		</a>
+		<div class="button navbar-burger" data-target="navMenu">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+
+	<div id="navMenu" class="navbar-menu">
+		<div class="navbar-end">
+			<a class="navbar-item menu-link" href="{{ SITEURL }}#menu-about">
+				About
+			</a>
+			<a class="navbar-item menu-link" href="{{ SITEURL }}#menu-news">
+				News
+			</a>
+			<a class="navbar-item menu-link" href="{{ SITEURL }}#menu-projects">
+				Projects
+			</a>
+			<a class="navbar-item menu-link" href="{{ SITEURL }}#menu-publications">
+				Publications
+			</a>
+			<a class="navbar-item {% if page_name == 'blog' %}menu-active{% endif %}" href="{{ SITEURL }}/blog.html">
+				Blog
+			</a>
+		</div>
+	</div>
+</nav>

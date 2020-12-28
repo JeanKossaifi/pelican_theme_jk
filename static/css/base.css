@@ -1,0 +1,312 @@
+html, body {
+	background: #F0F2F4;
+}
+body {
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	overflow: hidden!important;
+}
+a {
+	color: #005ce6;
+	overflow-wrap: break-word;
+}
+/* Home page */
+.pagetitle {
+	margin-top: 1.5em!important;
+	margin-bottom: 1.5em!important;
+}
+/* About */
+.twitter-timeline {
+	padding-top: 4em!important;
+}
+@media screen and (max-width: 768px) {
+	.twitter-timeline {
+		/*height: 600px!important;*/
+		display:none!important;
+	}
+}
+@media screen and (min-width: 768px) {
+	.twitter-timeline {
+		height: 100%!important;
+	}
+}
+
+/* News summaries */
+.news-summary p.first {
+	margin-bottom: 0!important;
+}
+.news-summary li {
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+}
+@media screen and (max-width: 768px) {
+    .card-content {
+        padding-left: 0.7em;
+        padding-right: 0.7em;
+    }
+}
+input.publication-search {
+	border:1!important;
+	background-color: #e8e8e861;
+	padding-left: 1em!important;
+}
+/* Projects */
+.project-title {
+	margin: 0!important;
+	padding: 0!important;
+}
+/* Articles */
+.article {
+	margin-bottom: 1.5em;
+	margin-top: 1.5em;
+}
+.articles {
+  margin-bottom: 3em;
+}
+.article-icon {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin-left: -30px;
+    border: 3px solid #ccc;
+    border-radius: 50%;
+	background: white;
+}
+/* post (articles summary) */
+.article-summary {
+	margin-bottom: 1.5em;
+	margin-top: 1.5em;
+}
+.article-summary:hover {
+	-webkit-transform:translate3d(0,0,0);
+	transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 7rem 5px #00000066;
+	transition: transform 0.5s;
+}
+/* navigation menu */
+.menu-section {
+	margin-top: 4em;	
+}
+.menu-anchor {
+    display: block;
+    position: relative;
+    top: -3.5em;
+    visibility: hidden;
+}
+.menu-title {
+ margin: 0.1em!important;
+ margin-left: 0.5em!important;
+ padding: 0;
+}
+@media screen and (min-width: 1068px) {
+	.navbar-brand {
+		margin-left: 10%;
+	}
+	.navbar-end {
+		margin-right: 10%;
+	}
+}
+.navbar-item {
+	margin: 0.7em 0.3em 0.7em 0.3em;
+}
+.menu-active {
+	background-color: rgba(115, 130, 158, 0.9)!important;
+	border-radius: 25px;
+}
+.navbar-item:hover {
+	border-radius: 25px;
+}
+/*
+.navbar-burger {
+	margin-top: 0.1em;
+	margin-bottom: 0.1em;
+	margin-right: 0.1em;
+}
+*/
+.navbar-burger:hover {
+    background-color: white;
+    border-color: #dbdbdb;
+    color: #363636;
+}
+
+/* CONTENT */
+.content .section {
+        padding: 0; /* prevent each new subsection to be smaller (especially horrible on mobiles where the sub-sub-section becomes a tiny column */
+}
+.content h1 {
+    padding-bottom: 0.5em;
+    padding-top: 0.4em;
+    font-size: 2.5rem;
+    overflow-wrap: break-word;
+}
+.content h2 {
+    padding-top: 1.75em;
+    overflow-wrap: break-word;
+}
+.content h3 {
+    padding-top: 1.5em;
+    overflow-wrap: break-word;
+}
+.content h4 {
+    padding-top: 1.25em;
+    overflow-wrap: break-word;
+}
+.content h5 {
+    padding-top: 1em;
+    overflow-wrap: break-word;
+}
+/* Full width pictures */
+.figure.full-image {
+    width: 100vw;
+}
+.figure img{
+	float: left;
+}
+figure.project-img {
+	text-align: center;
+	margin: auto;
+	height: auto;
+	width: auto;
+	padding-right: 1em;
+	max-width: 600px!important;
+}
+img {
+    max-width: 100vw;
+}
+@media screen and (max-width: 768px) {
+    img.full-image {
+        width: 100vw;
+        left: -2.25rem;
+		position: relative;
+    }
+}
+@media screen and (min-width: 768px) {
+    img.full-image {
+        width: 100vw;
+        left: -20vw;
+		position: relative;
+    }
+} 
+img.banner {
+	max-height: 80vh;
+}
+img.large-image {
+    position: relative;
+	width: 100%;
+} 
+img.align-center { margin:auto; display:block; }
+.figure.align-right {
+	float: right;
+	margin: 0 0 1em 1em;
+	max-width: 25%;
+}
+img.box-right {
+	float: right;
+	margin: 1em 0 1em 1em;
+	max-width: 100%;
+}
+/* MATH */
+@media screen and (max-width: 768px) {
+    div.math {
+        font-size: 0.8em;
+    }
+}
+div.math {
+    overflow-x: auto;
+}
+/* rst code related */
+.literal-block {
+	    margin-bottom: 1.5em;
+}
+/* IPyhon related style */
+.prompt {
+    display: none!important;
+}
+.import-area {
+    padding:0!important;
+}
+.output_subarea {
+    max-width: none!important;
+}
+.output_area {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	border: dashed;
+	border-width: 1px;
+	border-color: coral;
+}
+.output_png>img,video {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+.input {
+    font-size: inherit;
+    border: 0!important;
+    display: table!important;
+    padding:0!important;
+}
+.input_area {
+	display: grid;
+}
+div.cell {
+	display: inherit!important;
+}
+/* Side scroll */
+@media screen and (max-width: 768px) {
+    .side-scroll {
+        display: none;
+    }
+}
+@media screen and (min-width: 768px) {
+	.side-scroll {
+		top: 20%;
+		position: fixed;
+		opacity:1;
+		transition: opacity 0.7s;
+	}
+	.side-scroll.fade {
+		opacity: 0;
+	}
+}
+.side-button {
+	margin: 0.5em;
+}
+/* Social links */
+.is-twitter {
+	background-color: #0084b4;
+	border-color: transparent;
+	color: #fff;
+}
+.is-facebook {
+	background-color: #3b5998;
+	border-color: transparent;
+	color: #fff;
+}
+.is-linkedin {
+	background-color: #007bb6;
+	border-color: transparent;
+	color: #fff;
+}
+.modal-close {
+	bottom: 20px!important;
+	top:auto!important;
+}
+/* 404 */
+.not-found-title {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+.not-found-body {
+	padding-top: 2.5em;
+	padding-bottom: 2.5em;
+}
+.not-found {
+	min-height: 70vh;
+	margin-top: 3em;
+}
+.content table tr:hover {
+	background-color: transparent!important;
+}
+

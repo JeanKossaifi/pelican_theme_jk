@@ -1,0 +1,50 @@
+<footer class="footer">
+	<div class="has-text-centered">
+		{% if GITHUB_USERNAME %}
+		<p>
+		<a href="https://github.com/{{ GITHUB_USERNAME }}">
+			<i class="fa fa-github" aria-hidden="true"></i>
+			Github
+		</a>
+		</p>
+		{% endif %}
+
+		{% if TWITTER_USERNAME %}
+		<p>
+		<a href="http://twitter.com/{{TWITTER_USERNAME}}">
+			<i class="fa fa-twitter" aria-hidden="true"></i>
+			Twitter
+		</a>
+		</p>
+		{% endif %}
+		
+		{% if LINKEDIN_USERNAME %}
+		<p>
+		<a href="https://uk.linkedin.com/in/{{LINKEDIN_USERNAME}}">
+			<i class="fa fa-linkedin" aria-hidden="true"></i>
+			Linkedin
+		</a>
+		</p>
+		{% endif %}
+
+		{% if GOOGLE_SCHOLAR_USERNAME %}
+		<p>
+		<a href="https://scholar.google.com/citations?user={{GOOGLE_SCHOLAR_USERNAME}}">
+			<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+			Google Scholar
+		</a>
+		</p>
+		{% endif %}
+	</div>
+
+	<br/><br/>
+
+	<p class="has-text-centered">
+		© <a href={{ SITEURL }}>{{ AUTHOR }}</a>
+	<!-- </p>
+	<p class="has-text-centered"> -->
+		· Powered by <a href="https://docs.getpelican.com/en/latest/">Pelican</a>
+		and a theme by <a href="http://jeankossaifi.com/">Jean Kossaifi</a>.
+	</p>
+	
+</footer>

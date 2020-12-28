@@ -1,0 +1,35 @@
+	<div class="card article-summary">
+	<a href="{{SITEURL }}/{{ article.url }}">
+		<div class="card-content">
+		<div class="media">
+			<div class="media-content has-text-centered">
+			<h1 class="title article-title">
+			    {{ article.title }}
+			</h1>
+			<h2 class="subtitle is-4">
+			  	{% if POSTS_BY_CATEGORY %}
+					in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+			  	{% else %}
+					{% for tag in article.tags %}	
+					<span class="tag is-rounded is-dark">
+					<p href="{{ SITEURL }}/{{ tag.url }}">
+						{{ tag.name }}
+					</p> </span>
+					&thinsp;
+					{% endfor %}
+			  	{% endif %}
+			</h2>
+			</div>
+	  	</div>
+		{# content #}
+		<div id="" class="content has-text-centered article-body">
+	
+        {% if article.summary %}
+        <p class="content">{{ article.summary }}</p>
+        {% endif %}
+
+		</div>
+		{# END content #}
+	</div>
+	</a>
+	</div>

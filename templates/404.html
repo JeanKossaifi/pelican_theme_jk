@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="card not-found" href="{{SITEURL }}/{{ page.url }}" id="article">
+	{% if page.banner %}
+	<img alt="page banner" src={{SITEURL}}/{{page.banner}} class="large-image banner">
+	{% endif %}
+
+	<div class="card-content">
+	<div class="media">
+		<div class="media-content has-text-centered">
+		<h1 class="title not-found-title">
+			{{ page.title }}
+		</h1>
+		</div>
+	</div>
+	<hr/>
+
+	<div id="" class="content not-found-body has-text-centered">
+		{{page.content}}
+	</div>
+	</div>
+</div>
+
+{% endblock content %}

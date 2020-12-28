@@ -1,0 +1,77 @@
+	<div class="columns">
+		<div class="column> is-two-thirds"> 
+
+			{# start content #}
+			<div class="content">
+				<h2>Biography</h2>
+				<hr/>
+				<img style="padding-right: 20px; max-width:150px;" src="{{ SITEURL }}/images/{{PROFILE_IMAGEFILE}}" align="left"/>
+				<p>
+				I am currently a Senior Research Scientist at <a href="https://research.nvidia.com/person/jean-kossaifi">NVIDIA Research</a> and a Research Assistant at Imperial College London. Prior to that, I was a Research Scientist at the <a href="https://research.samsung.com/aicenter_cambridge">Samsung AI Center in Cambridge</a>, following the completion of my PhD in the Department of Computing at Imperial College London, within the <a href="http://ibug.doc.ic.ac.uk/">iBug</a> group. I worked a lot on automatic facial affect estimation, a field which bridges the gap between Computer Vision and Machine Learning. After contributing to facial landmark detection using Active Appearance Models and to emotion detection from faces, I currently focus on Machine Learning using tensor methods. 
+				</p>
+
+				<p>
+				I created <a href="http://tensorly.org/">TensorLy</a>, a high-level API for tensor methods and deep tensorized neural networks in Python, designed to make tensor learning simple and accessible. TensorLy allows to easily perform tensor decomposition, tensor learning and tensor algebra. Its backend system allows to seamlessly perform computation with NumPy, MXNet, PyTorch, TensorFlow, CuPy or JAX, and run methods at scale on CPU or GPU. It is <a href="https://github.com/tensorly/tensorly">open-source</a> under BSD licensed, making it suitable for both academic and industrial applications. 
+				</p>
+
+			<h3>You can find me on:</h3>
+			<hr/>
+			<nav class="level">
+
+				{% if GITHUB_USERNAME %}
+				<div class="level-item has-text-centered">
+					<a class="button" href="https://github.com/{{ GITHUB_USERNAME }}">
+						<span class="icon">
+							<i class="fa fa-github" aria-hidden="true"></i>
+						</span>
+						<span>GitHub</span>
+					</a>
+				</div>
+				{% endif %}
+
+				{% if TWITTER_USERNAME %}
+				<div class="level-item has-text-centered">
+					<a class="button" href="http://twitter.com/{{TWITTER_USERNAME}}">
+						<span class="icon">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</span>
+						<span>Twitter</span>
+					</a>
+				</div>
+				{% endif %}
+
+				{% if LINKEDIN_USERNAME %}
+				<div class="level-item has-text-centered">
+					<a class="button" href="https://uk.linkedin.com/in/{{LINKEDIN_USERNAME}}">
+						<span class="icon">
+							<i class="fa fa-linkedin" aria-hidden="true"></i>
+						</span>
+						<span>LinkedIn</span>
+					</a>
+				</div>
+				{% endif %}
+
+				{% if GOOGLE_SCHOLAR_USERNAME %}
+				<div class="level-item has-text-centered">
+					<a class="button" href="https://scholar.google.fr/citations?user={{GOOGLE_SCHOLAR_USERNAME}}">
+						<span class="icon">
+							<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+						</span>
+						<span>Google Scholar</span>
+					</a>
+				</div>
+				{% endif %}
+			</nav>
+			{# end content #}
+			</div>
+		</div>
+
+		{#
+		<div class="column is-one-third">
+			{% if TWITTER_USERNAME %}
+			<a class="twitter-timeline" href="https://twitter.com/{{ TWITTER_USERNAME }}">Tweets by {{ TWITTER_USERNAME }}</a> 
+			<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+			{% endif %}
+		</div>
+		#}
+	</div>

@@ -1,0 +1,220 @@
+{% extends 'layout.html' %}
+
+{% block card %}
+	<meta name="twitter:card" content="summary" />
+
+	{% if TWITTER_USERNAME %}
+	<meta name="twitter:creator" content="@{{TWITTER_USERNAME}}" />
+	{% endif %}
+	<meta name="twitter:title" content="{{article.title|striptags}}" />
+	<meta name="twitter:description" content="{{article.summary|striptags}}" />
+	{% if article.image %}
+	<meta name="twitter:image" content="{{SITEURL}}/{{article.image}}" />
+	{% elif article.banner %}
+	<meta name="twitter:image" content="{{SITEURL}}/{{article.banner}}" />
+	{% endif %}
+{% endblock card %}
+
+
+{% block title %}{{ article.title|striptags }} - {{ super() }}{% endblock title %}
+
+
+{% block content %}
+<!-- START about -->
+	<div class="card article" href="{{SITEURL }}/{{ article.url }}" id="article">
+		{% if article.banner %}
+		<img alt="page banner" src={{SITEURL}}/{{article.banner}} class="large-image banner">
+		{% endif %}
+
+		<div class="card-content">
+		<!-- title -->
+		<div class="media">
+			<div class="media-content has-text-centered">
+			<h1 class="title article-title">
+			    {{ article.title }}
+			</h1>
+			<h2 class="subtitle is-4">
+			  	{% if POSTS_BY_CATEGORY %}
+					in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+			  	{% else %}
+					{% for tag in article.tags %}	
+					<a class="tag is-rounded is-dark" href="{{ SITEURL }}/{{ tag.url }}">
+						{{ tag.name }}
+					</a>
+					&thinsp;
+					{% endfor %}
+			  	{% endif %}
+			</h2>
+			</div>
+	  	</div>
+		<hr/>
+		<!-- content -->
+		<div id="" class="content article-body">
+            {{ article.content }}
+		</div>
+		<!-- END content -->
+
+		<!-- social links -->
+		<nav class="level is-mobile">
+			<div>
+			<p class="heading">
+			BACK TO TOP:  
+			</p>
+			<div class="level-left">
+				<div class="level-item has-text-centered">
+					<a class="button" href="#top">
+						<span class="icon">
+							<i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+						</span>
+					</a>
+				</div>
+			</div>
+			</div>
+
+			<div>
+			<p class="heading">
+			Share this article: 
+			</p>
+			<div class="level-right">
+				<div class="level-item">
+					<a class="button is-twitter" href="http://twitter.com/share?url={{ (SITEURL+'/'+article.url) | urlencode | replace('/', '%2f') }}&via={{ TWITTER_USERNAME }}"
+									   {% if TWITTER_USERNAME %} data-via="{{TWITTER_USERNAME}}" {% endif %}>
+						<span class="icon">
+						<i class="fa fa-twitter" aria-hidden="true"></i>
+						</span>
+						{#
+						<span> Twitter</span>
+						#}
+					</a>
+				</div>
+
+
+				<div class="level-item">
+					<a class="button is-facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ (SITEURL+'/'+article.url) | urlencode | replace('/', '%2f') }}">
+						<span class="icon">
+						<i class="fa fa-facebook" aria-hidden="true"></i>
+						</span>
+						{#
+						<span>Facebook</span>
+						#}
+					</a>
+				</div>
+
+				<div class="level-item">
+					<a class="button is-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{ (SITEURL+'/'+article.url) | urlencode | replace('/', '%2f') }}&title={{article.title | urlencode}}&summary={{article.summary|urlencode}}">
+						<span class="icon">
+						<i class="fa fa-linkedin" aria-hidden="true"></i>
+						</span>
+					</a>
+				</div>
+
+				{#
+				<div class="level-item">
+					<a class="button is-danger" href="https://plus.google.com/share?url={{ (SITEURL+'/'+article.url) | urlencode | replace('/', '%2f') }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+						<span class="icon">
+						<i class="fa fa-google-plus" aria-hidden="true"></i>
+						</span>
+					</a>
+				</div>
+				#}
+			</div>
+			</div>
+		</nav>
+		<!-- END social links -->
+
+	</div>
+	</div>
+	<!-- END about -->
+
+	<!-- START comments -->
+	<div class="card article" href="{{SITEURL }}/{{ article.url }}">
+		<div class="card-content">
+		<!-- title -->
+		<div class="media">
+			<div class="media-content has-text-centered">
+			<h1 class="title is-3 article-title">
+				Leave a comment
+			</h1>
+			</div>
+	  	</div>
+		<!-- content -->
+		<div id="" class="content article-body">
+            {% include 'disqus.html' %}
+		</div>
+		<!-- END content -->
+	</div>
+	</div>
+	<!-- END about -->
+
+
+<div class="side-scroll fade" id="side-scroll">
+	{# up #}
+	<div class="side-button">
+	<a class="button is-outlined" href="#top">
+		<span class="icon">
+			<i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+		</span>
+	</a>
+	</div>
+	{# Twitter #}
+	<div class="side-button">
+	<a class="button is-outlined" href="http://twitter.com/share?url={{ (SITEURL+'/'+article.url) | urlencode | replace('/', '%2f') }}&via={{ TWITTER_USERNAME }}"
+									   {% if TWITTER_USERNAME %} data-via="{{TWITTER_USERNAME}}" {% endif %}>
+		<span class="icon">
+		<i class="fa fa-twitter" aria-hidden="true"></i>
+		</span>
+	</a>
+	</div>
+	{# Facebook #}
+	<div class="side-button">
+	<a class="button is-outlined" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ (SITEURL+'/'+article.url) | urlencode | replace('/', '%2f') }}">
+		<span class="icon">
+		<i class="fa fa-facebook" aria-hidden="true"></i>
+		</span>
+	</a>
+	</div>
+	{# Google+ #}
+	<div class="side-button">
+	<a class="button is-outlined" href="https://www.linkedin.com/shareArticle?mini=true&url={{ (SITEURL+'/'+article.url) | urlencode | replace('/', '%2f') }}&title={{article.title | urlencode}}&summary={{article.summary|urlencode}}">
+		<span class="icon">
+			<i class="fa fa-linkedin" aria-hidden="true"></i>
+		</span>
+	</a>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="{{ SITEURL }}/theme/scripts/sidescroll.js" />
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+	"@id": "{{SITEURL}}/{{article.url}}"
+  },
+  "headline": "{{article.title|striptags}}",
+  {% if article.image %}
+  "image": "{{SITEURL}}/{{article.image}}",
+  {% elif article.banner %}
+  "image": "{{SITEURL}}/{{article.banner}}",
+  {% else %}
+  "image": "{{SITEURL}}/default_image.png",
+  {% endif %}
+  "datePublished": "{{article.date}}",
+  "dateModified": "{{article.date}}",
+  "author": {
+    "@type": "Person",
+	"name": "{{AUTHOR}}"
+  },
+  "publisher": {
+    "@type": "Person"
+  },
+  "description": "{{article.summary|striptags}}"
+}
+</script>
+
+
+{% endblock content %}

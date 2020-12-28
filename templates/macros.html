@@ -1,0 +1,43 @@
+{% macro publication_info(publication, BIBTEX_ADDITIONAL_FIELDS) -%}
+		<div class="box publication">
+			<div class="content">
+				{{ publication['html'] }}
+			</div>
+
+			<nav class="level is-mobile">
+
+				<div class="level-left is-mobile">
+					<p class="level-item">
+
+					<div class="modal" id="{{ publication['ID'] }}">
+						<div class="modal-background" onclick="javascrip:toggle_modal('{{ publication['ID'] }}');"></div>
+						<div class="modal-content">
+							<div class="box">
+								{{ publication['bibtex'] }}
+							</div>
+						</div>
+						<button class="modal-close" onclick="javascrip:toggle_modal('{{ publication['ID'] }}');"></button>
+					</div>
+
+					<p class="level-item">
+					<a class="button" onclick="javascrip:toggle_modal('{{ publication['ID'] }}');">
+						<span class='icon'>
+							<i class='fa fa-graduation-cap' aria-hidden='true'></i> 
+						</span> 
+						<span> Bibtex </span> 
+					</a> 
+					</p>
+
+                    {% for key in BIBTEX_ADDITIONAL_FIELDS %}
+                    {% if publication[key] %}
+                    <p class="level-item">
+					{{ "<a class='button' onclick=\"window.open('{}','_blank');\" > <span class='icon'> <i class='fa {}' aria-hidden='true'></i> </span> <span> {} </s
+pan> </a> ".format(publication[key], BIBTEX_ADDITIONAL_FIELDS[key], key) }}
+					</p>
+					{% endif %}
+					{% endfor %}
+				</div>
+			</nav>
+		</div>
+
+{%- endmacro %}
